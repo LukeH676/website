@@ -10,9 +10,11 @@
     <%
     try{
     Session mailSession = Session.getInstance(System.getProperties());
-    Transport transport = new SMTPTransport(mailSession,new URLName("smtp.mail.yahoo.com"));
+    Transport transport = new SMTPTransport(mailSession,new URLName(""));
     transport = mailSession.getTransport("smtps");
-    transport.connect("smtp.mail.yahoo.com",465,"myyahooid@yahoo.com","myyahoopassword");
+    // **TO-DO**  
+    transport.connect("",465,"","");
+    // **TO-DO**
    MimeMessage m = new MimeMessage(mailSession);
    m.setFrom(new InternetAddress(%><%request.getParameter("from")%><%));
    Address[] toAddr = new InternetAddress[] {
